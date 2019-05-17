@@ -1,0 +1,56 @@
+@charset "UTF-8"
+
+//
+$font: 'Roboto Condensed', sans-serif
+$font-roboto: 'Roboto', sans-serif
+$font-pt: 'PT Sans', sans-serif
+$font-open: 'Open San', sans-serif
+$font-source: 'Source Sans Pro', sans-serif
+
+
+
+// цвет шрифтов
+$white: #ffffff
+$black: #000000
+$red: #ec4848
+$title: #3f444a
+$text: #5c6873
+$text-footer: #cccccc
+
+//цвет кнопок
+$btn: $red
+
+
+//цвет фона
+$bg-footer: #151515
+
+$border: #ebebeb
+
+// Основные разрешения
+// ===================
+$max-width: 1600px
+
+$desktop: 1330px
+$tablet: 991px
+$mobail: 767px
+$sm-mobail: 575px
+
+$min-width: 320px
+
+=max-width($width)
+	@media only screen and (max-width: $width)
+		@content
+
+=max-width-height($width)
+	@media only screen and (max-width: $width) and (max-height: 600px)
+		@content
+
+
+=full-wrap()
+	margin: 0 auto
+	position: relative
+	max-width: $max-width
+	min-width: $min-width
+	padding: 0 10px
+
+

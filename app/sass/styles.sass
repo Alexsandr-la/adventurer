@@ -1,0 +1,1185 @@
+@charset "UTF-8"
+
+@import 'include/_reset'
+@import 'include/_font'
+@import 'include/_config'
+@import 'include/_button'
+
+body
+	font: 300 18px/130% $font
+	//overflow-x: hidden
+
+
+.full-wrap
+	+full-wrap
+
+%title-section
+	font: 600 40px/130% $font
+	color: $title
+	letter-spacing: .4px
+	text-align: center
+	text-transform: uppercase
+	+max-width($mobail)
+			font-size: 26px
+
+%flex-row
+	display: flex
+	flex-flow: row wrap
+	align-items: baseline
+
+
+
+
+
+section
+	border-bottom: 1px solid $border
+
+.header
+	position: fixed
+	z-index: 100
+	width: 100%
+	background: white
+
+	.full-wrap
+
+		max-width: 1156px
+
+
+	&__wrap
+		display: flex
+		align-items: center
+		height: 80px
+		position: relative
+
+		+max-width($mobail)
+			height: 60px
+
+
+.logo
+	text-decoration: none
+	text-transform: uppercase
+	font: 700 34px/130% $font-pt
+	color: $red
+	transition: color .3s
+	margin-right: auto
+
+	&:hover
+		color: #CD4646
+		transition: color .3s
+
+.nav
+	+max-width($mobail)
+		top: 60px
+		right: -$mobail
+		position: fixed
+		overflow: auto
+		max-width: $mobail
+		width: 100%
+		height: 100%
+		max-height: calc(100vh - 60px)
+		min-width: 320px
+		background-color: white
+		transition: all .6s
+		border-top: 1px solid $border
+
+	&__item
+		display: inline-block
+		text-decoration: none
+		text-transform: uppercase
+		font: 700 14px/130% $font
+		color: $title
+		padding: 10px 0
+		margin-right: 32px
+		transition: color .3s
+		+max-width($mobail)
+			display: block
+			font-size: 16px
+			text-align: center
+			border-bottom: 1px solid $border
+			padding: 20px 0
+			margin-right: 0
+
+		&:hover
+			color: $red
+			transition: color .3s
+
+	&.show
+		right: 0
+		transition: all .6s
+
+.header-search
+	position: relative
+	width: 40px
+	height: 40px
+
+
+	&__wrap
+		overflow: hidden
+		position: relative
+		width: 100%
+		height: 100%
+
+	&__icon
+		position: absolute
+		top: 5px
+		left: 5px
+		background: url("../img/icon/magnifying-glass.svg") no-repeat
+		width: 30px
+		height: 30px
+
+		&:before
+			position: absolute
+			content: ""
+			width: 40px
+			height: 40px
+			left: -5px
+			bottom: -45px
+			background: $red
+			border-radius: 4px
+			opacity: 0
+			transition: all .3s
+			z-index: -1
+
+		&:hover:before
+			opacity: .7
+			bottom: -5px
+			transition: all .3s
+
+.burger
+	display: none
+	margin-left: 10px
+	+max-width($mobail)
+		display: block
+
+.header-popup
+	display: none
+	position: absolute
+	content: ""
+	top: 70px
+	right: -5px
+	padding: 16px 10px
+	background: $white
+	border-radius: 4px
+	filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3))
+
+	&:after
+		position: absolute
+		content: ""
+		width: 20px
+		height: 20px
+		top: -10px
+		right: 10px
+		background: white
+		transform: rotate(45deg)
+
+
+	&__content
+
+		input
+			border: none
+			border-bottom: 2px solid $border
+			border-radius: 2px
+			box-shadow: 0 0 4px transparent
+			padding: 5px 8px
+			outline: none
+			font-size: 16px
+			color: $text
+
+			&::placeholder
+				color: $border
+				text-transform: uppercase
+				font-size: 16px
+
+
+
+
+%main-arrow
+	position: absolute
+	content: ""
+	height: 60px
+	width: 60px
+	top: calc(50% - 30px)
+	+max-width($tablet)
+		top: calc(50% + 30px)
+
+.main
+	border: none
+
+	.full-wrap
+		padding: 0
+
+	&__bg
+		background: url("../img/Banner.jpg") 50% 50%/cover
+
+
+.main-slider
+	padding: 290px 0 267px
+	+max-width($tablet)
+		padding: 210px 0 160px
+	+max-width($mobail)
+		padding: 160px 0 110px
+
+	&__wrap
+		position: relative
+		padding: 0 10px
+
+	&__headline
+		font: 800 90px/130% $font-open
+		letter-spacing: 12.6px
+		color: $white
+		text-align: center
+		+max-width($tablet)
+			font-size: 80px
+			letter-spacing: 8px
+		+max-width($mobail)
+			font-size: 60px
+			letter-spacing: 6px
+		+max-width($sm-mobail)
+			font-size: 36px
+			letter-spacing: 2px
+
+	&__text
+		font: 600 14px/130% $font-open
+		letter-spacing: 6.44px
+		color: $white
+		text-align: center
+		margin-bottom: 76px
+		+max-width($tablet)
+			letter-spacing: 5px
+		+max-width($tablet)
+			font-size: 13px
+			letter-spacing: 1px
+		+max-width($sm-mobail)
+			max-width: 250px
+			margin: 0 auto 60px
+
+	&__btn
+		text-align: center
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 147px
+		height: 50px
+		margin: 0 auto
+		+max-width($sm-mobail)
+			width: 130px
+			height: 40px
+
+	&__prev
+		@extend %main-arrow
+		left: 99px
+		+max-width($desktop)
+			left: 10px
+
+
+	&__next
+		@extend %main-arrow
+		right: 99px
+		+max-width($desktop)
+			right: 10px
+
+
+.arrow
+	&__prev, &__next
+		position: relative
+		width: 60px
+		height: 60px
+		background: rgba(255,255,255,0)
+		border-radius: 50%
+		transition: background-color .3s
+
+		&:before
+			position: absolute
+			content: ""
+			top: calc(50% - 15px)
+			left: calc(50% - 8.5px)
+			background: url("../img/icon/arrow-left.svg") no-repeat
+			width: 15px
+			height: 29px
+		&:hover
+			background: rgba(255,255,255,.6)
+			transition: background-color .3s
+
+		&:hover:before
+			filter: invert(100%)
+
+
+	&__next
+		&:before
+			position: absolute
+			content: ""
+			top: calc(50% - 15px)
+			left: calc(50% - 7.5px)
+			background: url("../img/icon/arrow-left.svg") no-repeat
+			transform: rotate(180deg)
+			width: 15px
+			height: 29px
+		&:hover
+			background: rgba(255,255,255,.6)
+			transition: background-color .3s
+
+		&:hover:before
+			filter: invert(100%)
+
+.skill
+	&__content
+		padding: 50px 0
+
+	&__title
+		@extend %title-section
+		margin-bottom: 60px
+
+	&__text
+		font: 300 18px/166% $font
+		letter-spacing: .18px
+		color: $text
+		text-align: center
+		max-width: 800px
+		margin: 0 auto 65px
+
+	&__box
+		display: flex
+		justify-content: center
+		+max-width($mobail)
+			flex-flow: wrap
+
+
+
+	.accordion
+		margin: 0 14px
+		width: 45%
+		max-width: 578px
+		+max-width($mobail)
+			width: 100%
+			margin: 0 0 20px 0
+
+		&__title
+			font: 600 16px/130% $font-open
+			letter-spacing: -.8px
+			color: $white
+			padding: 19px 0 21px 19px
+			background-color: $red
+			border: 1px solid rgba(138, 138, 138, 0.5)
+			border-radius: 2px
+			cursor: pointer
+			position: relative
+
+			&:after
+				position: absolute
+				content: ""
+				right: 58px
+				top: 0
+				bottom: 0
+				background-color: rgba(138, 138, 138, 0.5)
+				width: 1px
+
+		&__wrap
+			position: absolute
+			content: ""
+			right: 12px
+			top: calc(50% - 17px)
+			height: 34px
+
+		&__icon
+			position: relative
+			content: ""
+			right: 0
+			top: calc(50% - 17px)
+			width: 34px
+			height: 34px
+			border-radius: 50%
+
+			&:after
+				position: absolute
+				content: ""
+				right: -17px
+				top: calc(50% - 4px)
+				height: 8px
+
+			&:before
+				position: absolute
+				content: ""
+				right: 8px
+				width: 10px
+				z-index: 2
+
+
+		&__icon--plus
+			background: #afafaf
+			border: 4px solid rgba(138, 138, 138, 0.8)
+
+
+			&:after
+				background: #afafaf
+				width: 18px
+
+			&:before
+				background: url("../img/plus.png") no-repeat
+				top: calc(50% - 5px)
+				height: 10px
+
+		&__icon--minus
+			background: $red
+			border: 4px solid $white
+
+			&:after
+				background: $white
+				width: 17px
+
+			&:before
+				background: url("../img/minus.png") no-repeat
+				top: calc(50% - 2px)
+				height: 4px
+
+
+		.hidden-title
+			//transform: rotate(270deg)
+			//background-color: $red
+			background-color: #3f444a
+			transition: all .4s
+
+
+		&__text
+			font: 400 14px/142% $font
+			padding: 31px 63px 35px 23px
+			background-color: #f8f8f8
+			border: 1px solid rgba(138, 138, 138, 0.5)
+			border-radius: 2px
+			position: relative
+			margin-bottom: 11px
+			opacity: 1
+			transition: all .3s ease-out
+
+
+		.hidden
+			overflow: hidden
+			opacity: 0
+			height: 0
+			padding-top: 0
+			padding-bottom: 0
+			transition: all .3s ease-out
+
+
+	.graph
+		margin: 0 14px
+		width: 45%
+		max-width: 538px
+		+max-width($mobail)
+			width: 100%
+			margin: 0
+
+		&__item
+			width: 100%
+			height: 31px
+			background-color: #f2f2f2
+			border: 1px solid rgba(138, 138, 138, 0.34)
+			border-radius: 2px
+			font: 400 16px/130% $font
+			color: $white
+			padding-top: 4px
+			padding-left: 18px
+			position: relative
+			z-index: 1
+			margin-bottom: 30px
+
+			&:before
+				position: absolute
+				content: ""
+				top: 0
+				bottom: 0
+				left: 0
+				width: 80%
+				background-color: $red
+				z-index: -1
+
+			&:nth-child(2):before
+					width: 60%
+
+			&:nth-child(3):before
+				width: 75%
+
+			&:nth-child(4):before
+				width: 90%
+
+			&:nth-child(5):before
+				width: 50%
+
+			&:nth-child(2):before
+				width: 85%
+
+
+
+
+
+.service
+	&__content
+		padding: 50px 0
+
+	&__title
+		@extend %title-section
+		margin-bottom: 59px
+
+	&__box
+		@extend %flex-row
+		justify-content: center
+
+	&__card
+		max-width: 330px
+		border: 1px solid $border
+		border-radius: 10px
+		margin: 0 30px 30px
+		padding: 30px 26px 42px
+
+	&__wrap
+		height: 88px
+		margin-bottom: 60px
+		display: flex
+		justify-content: center
+		align-items: center
+		+max-width($sm-mobail)
+			margin-bottom: 40px
+
+	&__img
+		max-width: 100%
+
+	&__headline
+		font: 600 22px/130% $font
+		letter-spacing: .22px
+		text-transform: uppercase
+		color: $title
+		margin-bottom: 30px
+		+max-width($sm-mobail)
+			font-size: 20px
+			margin-bottom: 16px
+			text-align: center
+
+	&__text
+		font: 300 18px/130% $font
+		letter-spacing: .18px
+		color: $text
+		margin-bottom: 45px
+		+max-width($sm-mobail)
+			margin-bottom: 30px
+			font-size: 16px
+
+	&__btn
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 156px
+		height: 52px
+		margin: 0 auto
+		+max-width($sm-mobail)
+			width: 140px
+			height: 40px
+
+.service__card--active
+	background-color: $title
+	color: $white
+	border: none
+
+
+.join
+	padding: 50px 0
+
+	.full-wrap
+		padding: 0
+
+	&__bg
+		background: url("../img/bg_join.jpg") 50% 50%/cover
+
+	&__content
+		padding: 100px 10px
+
+	&__img
+		display: block
+		max-width: 100%
+		margin: 0 auto 30px
+
+	&__title
+		@extend %title-section
+		color: $white
+		margin-bottom: 63px
+
+	&__text
+		line-height: 166%
+		letter-spacing: .18px
+		color: $white
+		text-align: center
+		max-width: 703px
+		margin: 0 auto 33px
+
+	&__btn
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 156px
+		height: 52px
+		margin: 0 auto
+
+
+.offers
+	.full-wrap
+		max-width: 1480px
+	&__content
+		padding: 50px 0 0
+
+	&__title
+		@extend %title-section
+		margin-bottom: 59px
+
+	&__box
+		@extend %flex-row
+		justify-content: center
+
+	&__card
+		display: flex
+		flex-flow: row nowrap
+		max-width: 495px
+		margin: 0 0 64px 87px
+		+max-width($sm-mobail)
+			margin-left: 0
+
+	&__img
+		width: 80px
+		height: 80px
+		background-color: $red
+		flex: 1 0 80px
+		display: flex
+		justify-content: center
+		align-items: center
+		margin: 7px 30px 0 0
+
+	&__headline
+		font: 600 25px/130% $font
+		letter-spacing: .25px
+		color: $title
+		text-transform: uppercase
+		margin-bottom: 16px
+
+	&__text
+		font: 300 18px/140% $font
+		color: $text
+
+
+.reviews
+	&__content
+		padding: 50px 0 44px
+
+	&__title
+		@extend %title-section
+		margin-bottom: 59px
+
+.reviews-slider
+	&__card
+		display: flex
+		flex-flow: column
+		align-items: center
+
+	&__item
+		display: flex
+		align-items: flex-start
+		margin-bottom: 66px
+		margin-left: 100px
+		text-align: left
+		+max-width($mobail)
+			margin-left: 0
+			margin-bottom: 50px
+
+		&:last-child
+			margin-bottom: 0
+
+	&__img
+		max-width: 100%
+		margin-right: 40px
+		flex: 0 1 120px
+		+max-width($mobail)
+			margin-right: 20px
+
+	&__name
+		font: 600 25px/130% $font
+		letter-spacing: .25px
+		color: $title
+		text-transform: uppercase
+
+	&__desc
+		font: 600 14px/130% $font
+		letter-spacing: .14px
+		color: $red
+		text-transform: uppercase
+		margin-bottom: 35px
+		+max-width($sm-mobail)
+			margin-bottom: 20px
+
+	&__text
+		font: 300 18px/138% $font
+		letter-spacing: .18px
+		color: $text
+		max-width: 606px
+		+max-width($sm-mobail)
+			font-size: 16px
+
+.progress
+	padding: 50px 0
+	.full-wrap
+		padding: 0
+
+	&__bg
+		background: url("../img/bg.jpg") 50% 50%/cover
+
+	&__content
+		padding: 48px 10px 58px
+
+	&__box
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+
+	&__card
+		width: 268px
+		height: 248px
+		background: rgba(236,72,72,.3)
+		margin: 10px
+		padding: 42px 0 50px
+		display: flex
+		flex-flow: column
+		align-items: center
+		justify-content: space-around
+		position: relative
+
+	&__img
+		max-width: 100%
+
+	&__number
+		color: $white
+		font: 600 40px/130% $font
+		letter-spacing: .4px
+
+	&__text
+		color: $white
+		font: 400 14px/130% $font
+		letter-spacing: 6.44px
+		text-transform: uppercase
+
+
+
+.our-team
+	&__content
+		padding: 50px 0 40px
+
+
+	&__title
+		@extend %title-section
+		margin-bottom: 63px
+
+	&__text
+		font: 300 18px/180% $font
+		color: $text
+		text-align: center
+		max-width: 692px
+		margin: 0 auto 53px
+
+	&__box
+		@extend %flex-row
+		justify-content: center
+
+	&__card
+		position: relative
+		overflow: hidden
+		margin: 0 10px 10px
+
+		&:hover .our-team__popup
+			bottom: 0
+
+		img
+			max-width: 100%
+			display: block
+
+	&__popup
+		position: absolute
+		left: 0
+		bottom: -100%
+		right: 0
+		background-color: $red
+		opacity: .96
+		color: $white
+		text-align: center
+		padding: 12px 0
+		transition: all .6s
+
+
+	&__caption
+		font: 400 25px/120% $font
+		letter-spacing: .25px
+
+	&__calling
+		font: 400 18px/160% $font
+		letter-spacing: .18px
+
+	&__networks img
+		max-width: 100%
+		display: inline
+		margin: 0 3px
+		transition: filter .4s
+
+		&:hover
+			//filter: invert(100%)
+			filter: brightness(.1)
+			transition: filter .4s
+
+	a:nth-child(2) img
+		filter: invert(100%)
+
+		&:hover
+			filter: invert(0%)
+
+	a
+		position: relative
+
+		&:hover:before
+			opacity: 1
+			transform: scaleX(90)
+
+		&:before
+			position: absolute
+			content: ""
+			left: 50%
+			bottom: 0
+			width: 1%
+			height: 2px
+			background-color: black
+			opacity: 0
+			transition: transform .4s, opacity .4s
+
+.works
+	&__wrap
+		border-bottom: 1px solid $border
+
+	&__content
+		+full-wrap
+		max-width: 1200px
+		padding: 50px 10px
+
+	&__title
+		@extend %title-section
+		margin-bottom: 55px
+
+	&__text
+		font: 300 18px/180% $font
+		letter-spacing: .18px
+		color: $text
+		text-align: center
+		max-width: 780px
+		margin: 0 auto 70px
+
+	&__box
+		display: flex
+		flex-flow: row wrap
+		justify-content: center
+
+	&__item
+		font: 400 25px/130% $font-source
+		color: #292626
+		margin: 0 25px 20px
+		display: flex
+		flex-flow: wrap
+		align-items: flex-start
+
+		img
+			margin-right: 10px
+
+
+.sorting
+	display: flex
+	flex-flow: wrap
+	justify-content: center
+	margin-bottom: 30px
+
+	&__item
+		font: 700 16px/130% $font
+		color: $title
+		text-transform: uppercase
+		margin: 0 18px 10px
+		cursor: pointer
+
+		&:first-child
+			color: $red
+
+.works-arrow
+
+.works-gallery
+	display: flex
+	flex-flow: row wrap
+	justify-content: center
+
+	&__card
+		margin: 0 15px 30px
+
+	&__wrap
+		position: relative
+
+		img
+			max-width: 100%
+			display: block
+			margin-bottom: 25px
+			border: 1px solid #abaaaa
+
+	&__popup
+		position: absolute
+		content: ""
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		background: rgba(236, 72, 72, .78)
+		opacity: 0
+		transition: opacity .2s
+
+		&:hover
+			opacity: 1
+			transition: opacity .2s
+
+	&__box
+		position: relative
+		height: 100%
+
+	&__icons
+		position: absolute
+		content: ""
+		top: calc(50% - 16px)
+		left: calc(50% - 32px)
+		display: flex
+		justify-content: space-between
+		align-items: center
+		width: 78px
+
+	&__zoom
+		background: url("../img/icon/zoom.svg") no-repeat 50% 50%
+		width: 12px
+		height: 12px
+		border-radius: 50%
+		padding: 14px
+		border: 2px solid $white
+		position: relative
+
+		&:hover
+			transform: scale(1.1)
+
+	&__jumper
+		position: relative
+		width: 14px
+		height: 2px
+		background-color: $white
+
+		&:after
+			position: absolute
+			content: ""
+			top: calc(50% - 3px)
+			left: 4px
+			width: 6px
+			height: 6px
+			border-radius: 50%
+			background-color: $white
+
+	&__link
+		background: url("../img/icon/link.svg") no-repeat 50% 50%
+		width: 12px
+		height: 12px
+		border-radius: 50%
+		padding: 14px
+		border: 2px solid $white
+
+		&:hover
+			transform: scale(1.1)
+
+
+	&__title
+		font: 300 20px/160% $font
+		color: $text
+		text-align: center
+
+	&__text
+		font: 300 12px/260% $font
+		letter-spacing: .12px
+		color: $text
+		text-align: center
+
+
+
+
+.subscribe
+	background: #312b2b
+	border: none
+	margin-top: 50px
+
+	&__content
+		max-width: 1110px
+		margin: 0 auto
+		padding: 16px 10px
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		align-items: baseline
+		+max-width($mobail)
+			flex-flow: column
+			align-items: center
+
+	&__text
+		font: 500 16px/130% $font-roboto
+		letter-spacing: .64px
+		color: $text-footer
+		text-align: center
+		+max-width($mobail)
+			margin-bottom: 20px
+
+	&__form
+		display: flex
+
+		input
+			height: 49px
+			width: 299px
+			padding-left: 17px
+			border: none
+			border-radius: 3px 0 0 3px
+			font: 400 16px/200% $font-source
+			color: #b0bec4
+			+max-width($mobail)
+				width: 230px
+
+			&:hover
+				box-shadow: inset 0 0 3px #121111
+
+		button
+			height: 49px
+			width: 62px
+			background-color: $red
+			border: none
+			cursor: pointer
+			border-radius: 0 3px 3px 0
+
+			img
+				max-width: 20px
+				filter: invert(100%)
+
+			&:hover img
+				transform: scale(1.2)
+
+
+
+.footer
+	background: $bg-footer
+
+	&__content
+		padding: 55px 0 68px
+		border-bottom: 3px solid #534a4a
+		+max-width($mobail)
+			padding-bottom: 20px
+
+
+	&__box
+		min-width: $min-width
+		padding: 0 10px
+		display: flex
+		flex-flow: wrap
+		justify-content: center
+		align-items: flex-start
+
+
+	&__col
+		max-width: 300px
+		margin-bottom: 20px
+
+	&__logo
+		font-size: 40px
+		margin-top: -10px
+		margin-bottom: 14px
+
+	&__text
+		font: 400 14px/140% $font-open
+		color: $text-footer
+		margin-left: 17px
+		margin-bottom: 41px
+
+	&__networks
+		margin-left: 17px
+
+		a:hover
+			opacity: .7
+			transition: opacity .2s
+
+
+	&__title
+		font: 400 21px/100% $font-roboto
+		color: $white
+		margin-bottom: 34px
+
+	&__list
+
+
+		li
+			font: 400 15px/160% $font-roboto
+			color: $text-footer
+			margin-bottom: 14px
+			margin-left: 50px
+			position: relative
+
+			&:before
+				position: absolute
+				content: ""
+				background: url("../img/icon/sign.png")
+				width: 16px
+				height: 15px
+				left: -30px
+				top: 5px
+
+	&__tags
+		display: flex
+		flex-flow: wrap
+		margin-left: 16px
+
+		.btn
+			font: 400 14px/150% $font-roboto
+			padding: 6px 9px
+			margin: 0 5px 5px 0
+
+	&__posts
+		margin-left: 16px
+
+		a:hover
+			opacity: .7
+			transition: opacity .3s
+
+.footer-copy
+	max-width: 1170px
+	margin: 0 auto
+	min-width: $min-width
+	padding: 27px 10px
+	display: flex
+	flex-flow: wrap
+	justify-content: space-between
+	+max-width($mobail)
+		flex-flow: column
+		align-items: center
+
+	&__text
+		font: 400 14px/135% $font-open
+		color: #c5c5c5
+		+max-width($mobail)
+			margin-bottom: 10px
+			text-align: center
+
+		a
+			color: $red
+			text-decoration: none
+
+			&:hover
+				opacity: .7
+				transition: opacity .3s
+
+	&__networks
+		a
+			margin-left: 16px
+
+			&:hover
+				opacity: .6
+				transition: opacity .3s
